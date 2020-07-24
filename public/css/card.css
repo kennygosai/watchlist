@@ -1,0 +1,28 @@
+/*
+ * Filename: \public\css\card.css
+ * Created Date: Wednesday, July 1st 2020, 4:42:34 pm
+ * Author: Kenny Gosai
+ */
+
+.card-img-top:hover {
+  background-blend-mode: darken;
+  display: block;
+  overflow: auto;
+}
+.card-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.card-img-top:hover p {
+  text-overflow: ellipsis;
+  color: white;
+  visibility: visible;
+  margin: 10px;
+}
+.card-img-top p {
+  text-overflow: ellipsis;
+  color: white;
+  visibility: hidden;
+  margin: 10px;
+}

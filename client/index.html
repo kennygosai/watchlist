@@ -1,0 +1,138 @@
+<!--
+Filename: \client\index.html
+Created Date: Friday, July 10th 2020, 10:43:46 am
+Author: Kenny Gosai
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Watch List</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/landing.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div
+        class="h-100 d-flex flex-column align-items-center justify-content-center"
+      >
+        <img
+          src="/images/logo.png"
+          class="img-fluid"
+          style="width: 300px; margin-bottom: 25px;"
+          alt="Responsive image"
+        />
+        <div class="d-flex">
+          <a href="login"
+            ><button
+              type="button"
+              style="margin-right: 10px;"
+              class="btn btn-primary btn-lg"
+            >
+              Login
+            </button></a
+          >
+          <a href="register"
+            ><button
+              type="button"
+              style="margin-left: 10px;"
+              class="btn btn-primary btn-lg"
+            >
+              Register
+            </button></a
+          >
+        </div>
+      </div>
+      <div class="box">
+        <div id="1"></div>
+        <div id="2"></div>
+        <div id="3"></div>
+        <div id="4"></div>
+        <div id="5"></div>
+        <div id="6"></div>
+        <div id="7"></div>
+        <div id="8"></div>
+        <div id="9"></div>
+        <div id="10"></div>
+      </div>
+    </div>
+    <script>
+      /**
+       * Changes id image to a random image.
+       * @param {string} backgroundImg - Array of images
+       * @param {number} id - id of div to change.
+       */
+      function changeImage(backgroundImg, id) {
+        var i = Math.floor(Math.random() * 39);
+        document.getElementById(id).style.backgroundImage =
+          "url(https://image.tmdb.org/t/p/original/" +
+          backgroundImg[i].poster_path +
+          ")";
+        document.getElementById(id).style.backgroundSize = "cover";
+        document.getElementById(id).style.backgroundPosition = "center";
+      }
+      fetch("/getPopular", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response2) {
+          const arr = response2.movie.results.concat(response2.tv.results);
+          changeImage(arr, 1);
+          changeImage(arr, 2);
+          changeImage(arr, 3);
+          changeImage(arr, 4);
+          changeImage(arr, 5);
+          changeImage(arr, 6);
+          changeImage(arr, 7);
+          changeImage(arr, 8);
+          changeImage(arr, 9);
+          changeImage(arr, 10);
+          setInterval(() => changeImage(arr, 1), 10000);
+          setInterval(() => changeImage(arr, 2), 7000);
+          setInterval(() => changeImage(arr, 3), 9000);
+          setInterval(() => changeImage(arr, 4), 10000);
+          setInterval(() => changeImage(arr, 5), 6000);
+          setInterval(() => changeImage(arr, 6), 12000);
+          setInterval(() => changeImage(arr, 7), 15000);
+          setInterval(() => changeImage(arr, 8), 16000);
+          setInterval(() => changeImage(arr, 9), 9000);
+          setInterval(() => changeImage(arr, 10), 5000);
+        })
+        .catch(function (err) {});
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
