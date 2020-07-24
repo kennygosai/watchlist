@@ -13,7 +13,7 @@ const user = require("./routes/user");
 const movieDB = require("./routes/movieDB");
 require("dotenv").config();
 const app = express();
-const port = process.env.port || 8080;
+const port = 8080;
 app.use(
   session({
     secret: process.env.BCRYPT_SECRET,
