@@ -85,7 +85,7 @@ fetch("/user/data/detailed", {
         i +
         '" class="btn btn-danger" onClick="deleteSaved(' +
         i +
-        ')">Remove movie</button>';
+        ')">Remove</button>';
 
       html += "</div>";
       html += "</div>";
