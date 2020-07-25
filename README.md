@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="public/images/logo.png" alt="Logo" width="80" height="80">
+  <a href="http://watchlist-env.eba-3euhr9p4.us-east-2.elasticbeanstalk.com/">
+    <img src="public/images/logo.png" alt="Logo" width="167" height="80">
   </a>
 
   <h3 align="center">Watch List</h3>
@@ -10,18 +10,18 @@
   <p align="center">
     An website to store TV Shows and Movies you want to watch.
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/kennygosai/watchlist"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="http://watchlist-env.eba-3euhr9p4.us-east-2.elasticbeanstalk.com/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/kennygosai/watchlist/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/kennygosai/watchlist/issues">Request Feature</a>
   </p>
 </p>
 
-
+MySQL Tables
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -31,6 +31,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+* [MySQL Tables](#mysql-tables)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -43,7 +44,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](http://watchlist-env.eba-3euhr9p4.us-east-2.elasticbeanstalk.com/)
 
 
 ### Built With
@@ -67,21 +68,45 @@ npm install npm@latest -g
 1. Get a free API Key at [themoviedb.org](https://developers.themoviedb.org/3/getting-started/introduction)
 2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/kennygosai/watchlist.git
 ```
 3. Install NPM packages
 ```sh
 npm install
 ```
-4. Enter your API in `.env`
-```JS
-const API_KEY = 'ENTER YOUR API';
+4. Enter your keys in a `.env` file in the root directory
 ```
+HOST=MySQL Host name
+DBPORT=MySQL Database port
+USER=MySQL username
+PASSWORD=MySQL password
+DATABASE=MySQL database
+BCRYPT_SECRET=Secret word used for the users current session
+SALT_ROUNDS=Number of Salt round Bcryptjs uses
+MOVIEDB_KEY=MovieDB API key
+```
+5. To start
+```sh
+npm start
+```
+<!-- MySQL -->
+## MySQL Tables
+
+### users
+| username (varchar) | password (varchar)       |
+|--------------------|--------------------------|
+| The users email.   | Encrypted user password. |
+
+### movieList
+
+| username (varchar) | title (varchar) | movieID (int)            | image (varchar)          |
+|--------------------|-----------------|--------------------------|--------------------------|
+| The users email.   | Title of media. | MovieDB ID of the media. | URL of the media poster. |
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/kennygosai/watchlist/issues) for a list of proposed features (and known issues).
 
 
 
@@ -102,7 +127,7 @@ Contributions are what make the open source community such an amazing place to b
 
 Kenny Gosai - [https://kennygosai.com/](https://kennygosai.com/#contact)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/kennygosai/watchlist](https://github.com/kennygosai/watchlist)
 
 
 
@@ -113,17 +138,4 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=flat-square
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=flat-square
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=flat-square
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: public/images/screenshot.png

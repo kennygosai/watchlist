@@ -39,5 +39,5 @@ app.post("/login/data", auth.login);
 app.post("/register/data", auth.register);
 app.post("/logout", auth.logout);
 app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at http://localhost:${port}`)
 );
